@@ -1,20 +1,22 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import Home from './views/Home';
+import About from './views/About';
+import Contact from './views/Contact';
+import Navbar from './component/Navbar';
 
 function App() {
   return (
-    <div className="App">
-    <Layout>
-    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
-      </Menu>
-    </Layout>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Route exact path='/' component={Home} />
+        <Route path='/home' component={Home} />
+        <Route path='/about' component={About} />
+        <Route path='/contact' component={Contact} />
+      </div>
+    </BrowserRouter>
   );
 }
 
